@@ -9,19 +9,19 @@ import (
 	"os"
 )
 
-// mapear toda resposta e trazer o nome da região + todos os pokemons dela
+// Struct para mapear toda resposta e trazer o nome da região + todos os pokemons dela
 type Response struct {
 	Name    string    `json:"name"`
 	Pokemon []Pokemon `json:"pokemon_entries"`
 }
 
-// mapear todos os pokemons
+// Struct para mapear todos os pokemons
 type Pokemon struct {
 	EntryNo int            `json:"entry_number"`
 	Species PokemonSpecies `json:"pokemon_species"`
 }
 
-// mapear as especies Pokemon incluindo seus nomes
+// Struct para mapear os nomes dos Pokemons dentro do objeto JSON species
 type PokemonSpecies struct {
 	Name string `json:"name"`
 }
@@ -30,7 +30,7 @@ const kanto string = "http://pokeapi.co/api/v2/pokedex/kanto/"
 
 func main() {
 
-	// faz a requisição ao endpoint e recebe a resposta.
+	// faz a requisição ao endpoint. recebe a resposta e armazena dentro da var "response".
 	// caso a resposta contenha erro, irá printar na tela e sair do sistema
 	response, err := http.Get(kanto)
 	if err != nil {
@@ -44,9 +44,9 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// deserializar a resposta e armazenar na variavel responseObject
-	// a var responseObject possui o tipo struct Response que declaramo acima
-	// o valor será apenas o nome da região >> kanto
+	// deserializa a resposta e armazena na variavel responseObject
+	// a var responseObject possui o tipo struct Response que declaramos acima
+	// nesse primeiro teste, iremos apenas pegar o nome da region >> kanto
 	var responseObject Response
 	json.Unmarshal(responseData, &responseObject)
 	fmt.Println(responseObject.Name)

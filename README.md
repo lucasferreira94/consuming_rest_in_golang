@@ -2,9 +2,10 @@
 
 ---
 
-This is my first test to study how REST API are consumed using GO
+Este é o meu primeiro projeto para entender na prática, como o consumo de REST API é feito usando GO
 
 ---
 
-I used this tutorial to help me understand:
+Utilizei o tutorial abaixo para estudo:
 https://tutorialedge.net/golang/consuming-restful-api-with-go/
+
